@@ -1,0 +1,97 @@
+html
+{
+    height : 100%;
+}
+
+body
+{
+    background-image : url("night_sky.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+html
+{
+    overflow: hidden;
+}
+.div
+{
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+.d1
+{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border : 2px solid rgba(218, 218, 218, 0.5);
+    border-radius : 20px;
+    color : white;
+    width : 23%;
+    backdrop-filter: blur(7px);
+    background-color : rgba(252, 245, 245, 0.1);
+    padding : 2% 3% 3% 3%;
+    margin-top : 100px;
+
+}
+h1, .d2, .d3
+{
+    text-align : center;
+}
+.btn
+{
+    padding : 3% 7% 3% 7%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius : 10px;
+    border: 1px solid white;
+    cursor :pointer;
+    font-size : 15px;
+    background-image:linear-gradient(to right, rgb(143, 12, 199), rgb(199, 6, 199));
+    color : white;
+
+}
+
+
+h4
+{
+    padding-left : 9%;
+}
+input
+{
+    width : 80%;
+    height : 40px;
+    border-radius : 5px;
+
+}
+
+input.placeholder
+{
+    text-align : center;
+}
+
+h1
+{
+    color : rgb(255, 138, 255);
+}
+.flex
+{
+    display : flex;
+    justify-content: center;
+}
+.sub
+{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color:rgb(255, 138, 255)
+}
+input
+{
+    background : transparent;
+    border-style : solid;
+    color : white;
+    padding-left : 3%;
+}
+::placeholder
+{
+    color : rgb(171, 171, 171);
+}
