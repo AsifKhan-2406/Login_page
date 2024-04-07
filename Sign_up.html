@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign up form</title>
+    <link rel="stylesheet" href="Sign_up_css.css" />
+  </head>
+  <body>
+    <div class="div">
+      <div class="d1">
+        <h1>Sign up</h1><br>
+        <h4>Username</h4>
+        <div class="d2">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter Username" autocomplete="off"
+          /><br />
+        </div>
+        <h4>New Password</h4>
+        <div class="d3">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter password"
+          /><br />
+        </div>
+        <h4>Confirm Password</h4>
+        <div class="d4">
+          <input
+            type="password"
+            name="confirm_password"
+            id="confirm_password"
+            placeholder="Enter password"
+          /><br />&nbsp;
+        </div>
+        <div style = "text-align : center">
+          <button class="btn">Sign up</button><br /><br />
+          <p class="sub">
+            Already have an account ?&nbsp;<a href="Login_page.html">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelector(".btn").addEventListener("click", function () {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("confirm_password").value;
+
+        // Check if passwords match
+
+        const data = {
+          username: username,
+          password: password,
+        };
+
+        fetch("http://127.0.0.1:5000/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if(username ==  "" || password == ""){
+              alert("Please fill out all fields");
+            }
+            else if (data.message == "Username already exists") {
+              alert(data.message);
+            } else if (password !== confirmPassword) {
+              alert("Passwords do not match! Please re-enter your password.");
+              return; // Prevent form submission if passwords don't match
+            } else if (password == confirmPassword) {
+              alert("Registration successfull.");
+            }
+
+            console.log(data.message);
+            // Redirect to a different page or show a success message
+          })
+          .catch((error) => console.error("Error:", error));
+      });
+    </script>
+  </body>
+</html>
